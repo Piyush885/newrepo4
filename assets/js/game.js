@@ -117,7 +117,7 @@ function World() {
     scene.add(ground);
 
     objects = [];
-    treePresenceProb = 0.2;
+    treePresenceProb = 0.02;
     maxTreeSize = 0.5;
     for (var i = 10; i < 40; i++) {
       createRowOfTrees(i * -3000, treePresenceProb, 0.5, maxTreeSize);
