@@ -514,7 +514,7 @@ function Character() {
     self.currentLane = 0;
     self.runningStartTime = new Date() / 1000;
     self.pauseStartTime = new Date() / 1000;
-    self.stepFreq = 0.85;
+    self.stepFreq = 0;
     self.queuedActions = [];
   }
 
