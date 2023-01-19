@@ -222,31 +222,31 @@ function World() {
           var level = difficulty / levelLength;
           switch (level) {
             case 1:
-              treePresenceProb = 0.35;
+              treePresenceProb = 0.035;
               maxTreeSize = 0.5;
               break;
             case 2:
-              treePresenceProb = 0.35;
+              treePresenceProb = 0.035;
               maxTreeSize = 0.85;
               break;
             case 3:
-              treePresenceProb = 0.5;
+              treePresenceProb = 0.05;
               maxTreeSize = 0.85;
               break;
             case 4:
-              treePresenceProb = 0.5;
+              treePresenceProb = 0.05;
               maxTreeSize = 1.1;
               break;
             case 5:
-              treePresenceProb = 0.5;
+              treePresenceProb = 0.05;
               maxTreeSize = 1.1;
               break;
             case 6:
-              treePresenceProb = 0.55;
+              treePresenceProb = 0.055;
               maxTreeSize = 1.1;
               break;
             default:
-              treePresenceProb = 0.55;
+              treePresenceProb = 0.055;
               maxTreeSize = 1.25;
           }
         }
@@ -514,7 +514,7 @@ function Character() {
     self.currentLane = 0;
     self.runningStartTime = new Date() / 1000;
     self.pauseStartTime = new Date() / 1000;
-    self.stepFreq = 2;
+    self.stepFreq = 0.85;
     self.queuedActions = [];
   }
 
