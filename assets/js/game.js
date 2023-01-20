@@ -185,8 +185,8 @@ function World() {
       console.log("ye h data",data)
       if (data.actions == 0) {
         character.onUpKeyPressed();
-      } else if (data.actions == 1) {
-        character.onLeftKeyPressed();
+      }else if (data.actions == 1) {
+         character.onLeftKeyPressed();
       } else {
         character.onRightKeyPressed();
       }
