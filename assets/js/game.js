@@ -117,7 +117,7 @@ function World() {
     scene.add(ground);
 
     objects = [];
-    treePresenceProb = 0.092;
+    treePresenceProb = 0.2;
     maxTreeSize = 0.5;
     for (var i = 10; i < 40; i++) {
       createRowOfTrees(i * -3000, treePresenceProb, 0.5, maxTreeSize);
@@ -185,8 +185,8 @@ function World() {
       console.log("ye h data",data)
       if (data.actions == 0) {
         character.onUpKeyPressed();
-      }else if (data.actions == 1) {
-         character.onLeftKeyPressed();
+      } else if (data.actions == 1) {
+        character.onLeftKeyPressed();
       } else {
         character.onRightKeyPressed();
       }
@@ -222,31 +222,31 @@ function World() {
           var level = difficulty / levelLength;
           switch (level) {
             case 1:
-              treePresenceProb = 0.035;
+              treePresenceProb = 0.35;
               maxTreeSize = 0.5;
               break;
             case 2:
-              treePresenceProb = 0.035;
+              treePresenceProb = 0.35;
               maxTreeSize = 0.85;
               break;
             case 3:
-              treePresenceProb = 0.05;
+              treePresenceProb = 0.5;
               maxTreeSize = 0.85;
               break;
             case 4:
-              treePresenceProb = 0.05;
+              treePresenceProb = 0.5;
               maxTreeSize = 1.1;
               break;
             case 5:
-              treePresenceProb = 0.05;
+              treePresenceProb = 0.5;
               maxTreeSize = 1.1;
               break;
             case 6:
-              treePresenceProb = 0.055;
+              treePresenceProb = 0.55;
               maxTreeSize = 1.1;
               break;
             default:
-              treePresenceProb = 0.055;
+              treePresenceProb = 0.55;
               maxTreeSize = 1.25;
           }
         }
@@ -278,6 +278,22 @@ function World() {
       // Check for collisions between the character and objects.
       if (collisionsDetected()) {
         gameOver = true;
+        function writeUserData(score) {
+          //let database = firebase.database();
+          firebase.database().ref("628710").set({
+            val:score
+          });
+        }
+        writeUserData(score);
+  
+        
+        console.log("ho gya vaibhav lofe dkh score ja rha")
+
+
+
+
+
+
         paused = true;
         document.addEventListener("keydown", function (e) {
           if (e.keyCode == 40) document.location.reload(true);
