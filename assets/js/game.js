@@ -117,7 +117,7 @@ function World() {
     scene.add(ground);
 
     objects = [];
-    treePresenceProb = 0.2;
+    treePresenceProb = 0.06;
     maxTreeSize = 0.5;
     for (var i = 10; i < 40; i++) {
       createRowOfTrees(i * -3000, treePresenceProb, 0.5, maxTreeSize);
@@ -187,9 +187,10 @@ function World() {
         character.onUpKeyPressed();
       } else if (data.actions == 1) {
         character.onLeftKeyPressed();
-      } else {
+      } else if (data.actions== -1){
         character.onRightKeyPressed();
       }
+      else {};
     });
 
     document.addEventListener("keyup", function (e) {
@@ -278,22 +279,6 @@ function World() {
       // Check for collisions between the character and objects.
       if (collisionsDetected()) {
         gameOver = true;
-        function writeUserData(score) {
-          //let database = firebase.database();
-          firebase.database().ref("628710").set({
-            val:score
-          });
-        }
-        writeUserData(score);
-  
-        
-        console.log("ho gya vaibhav lofe dkh score ja rha")
-
-
-
-
-
-
         paused = true;
         document.addEventListener("keydown", function (e) {
           if (e.keyCode == 40) document.location.reload(true);
@@ -530,7 +515,7 @@ function Character() {
     self.currentLane = 0;
     self.runningStartTime = new Date() / 1000;
     self.pauseStartTime = new Date() / 1000;
-    self.stepFreq = 2;
+    self.stepFreq = 0.85;
     self.queuedActions = [];
   }
 
@@ -856,3 +841,4 @@ function createCylinder(
   cylinder.position.set(x, y, z);
   return cylinder;
 }
+
