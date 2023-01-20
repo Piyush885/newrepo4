@@ -117,7 +117,7 @@ function World() {
     scene.add(ground);
 
     objects = [];
-    treePresenceProb = 0.02;
+    treePresenceProb = 0.092;
     maxTreeSize = 0.5;
     for (var i = 10; i < 40; i++) {
       createRowOfTrees(i * -3000, treePresenceProb, 0.5, maxTreeSize);
@@ -514,7 +514,7 @@ function Character() {
     self.currentLane = 0;
     self.runningStartTime = new Date() / 1000;
     self.pauseStartTime = new Date() / 1000;
-    self.stepFreq = 0.85;
+    self.stepFreq = 2;
     self.queuedActions = [];
   }
 
