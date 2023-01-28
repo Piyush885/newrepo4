@@ -217,7 +217,7 @@ function World() {
     if (!paused) {
       // Add more trees and increase the difficulty.
       if (objects[objects.length - 1].mesh.position.z % 3000 == 0) {
-        difficulty += 1;
+        difficulty = 1;
         var levelLength = 30;
         if (difficulty % levelLength == 0) {
           var level = difficulty / levelLength;
@@ -231,34 +231,34 @@ function World() {
               maxTreeSize = 0.85;
               break;
             case 3:
-              treePresenceProb = 0.5;
+              treePresenceProb = 0.35;
               maxTreeSize = 0.85;
               break;
             case 4:
-              treePresenceProb = 0.5;
-              maxTreeSize = 1.1;
+              treePresenceProb = 0.35;
+              maxTreeSize = 0.85;
               break;
             case 5:
-              treePresenceProb = 0.5;
-              maxTreeSize = 1.1;
+              treePresenceProb = 0.35;
+              maxTreeSize = 0.85;
               break;
             case 6:
-              treePresenceProb = 0.55;
-              maxTreeSize = 1.1;
+              treePresenceProb = 0.35;
+              maxTreeSize = 0.85;
               break;
             default:
-              treePresenceProb = 0.55;
-              maxTreeSize = 1.25;
+              treePresenceProb = 0.35;
+              maxTreeSize = 0.85;
           }
         }
-        if (difficulty >= 5 * levelLength && difficulty < 6 * levelLength) {
-          fogDistance -= 25000 / levelLength;
-        } else if (
-          difficulty >= 8 * levelLength &&
-          difficulty < 9 * levelLength
-        ) {
-          fogDistance -= 5000 / levelLength;
-        }
+        // if (difficulty >= 5 * levelLength && difficulty < 6 * levelLength) {
+        //   fogDistance -= 25000 / levelLength;
+        // } else if (
+        //   difficulty >= 8 * levelLength &&
+        //   difficulty < 9 * levelLength
+        // ) {
+        //   fogDistance -= 5000 / levelLength;
+        // }
         createRowOfTrees(-120000, treePresenceProb, 0.5, maxTreeSize);
         scene.fog.far = fogDistance;
       }
